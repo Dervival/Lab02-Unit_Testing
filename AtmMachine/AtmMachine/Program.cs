@@ -13,7 +13,7 @@ namespace AtmMachine
         public static decimal balance = 2000.00M;
         public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to this ATM.");
+            Console.WriteLine("Welcome to this ATM.\n");
             bool continueState = true;
             while (continueState)
             {
@@ -31,41 +31,58 @@ namespace AtmMachine
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Unexpected error caught: " + e.Message);
+                    Console.WriteLine("\nUnexpected error caught: " + e.Message);
                 }
                 switch (selection)
                 {
                     case 1:
                         //view current balance
+                        View();
                         break;
                     case 2:
                         //deposit
+                        Console.WriteLine("\nPlease enter your deposit amount.");
+                        userInput = Console.ReadLine();
+                        decimal.TryParse(userInput, out decimal deposit);
+                        try { Deposit(deposit); }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Invalid deposit was requested - " + e.Message);
+                            Console.WriteLine("Returning to main menu.");
+                        }
                         break;
                     case 3:
                         //withdraw
+                        Console.WriteLine("\nPlease enter your withdrawal amount.");
+                        userInput = Console.ReadLine();
+                        decimal.TryParse(userInput, out decimal withdrawal);
+                        try { Withdraw(withdrawal); }
+                        catch (Exception e)
+                        { 
+                            Console.WriteLine("Invalid withdrawal was requested - " + e.Message);
+                            Console.WriteLine("Returning to main menu.");
+                        }
                         break;
                     case 4:
                         //exit
                         continueState = false;
                         break;
                     default:
+                        //unexpected menu choice
+                        Console.WriteLine("\nInvalid input. Please select either 1, 2, 3, or 4.");
                         break;
                 }
-                continueState = false;
             }
-            
         }
 
         public static decimal Withdraw(decimal amount)
         {
             if(amount < 0)
-            {
-                Console.WriteLine("Invalid withdrawal amount of $" + amount + " was requested. Please make only non-negative withdrawals. Returning to main menu.");
+            {   
                 throw new System.ArgumentException("Parameter cannot be negative", "amount");
             }
             if(amount > balance)
             {
-                Console.WriteLine("Insufficient funds. A withdrawal of $" + amount + " was requested, but there is only $" + balance + " in the account. Returning to main menu.");
                 throw new System.ArgumentException("Parameter cannot be less than $" + balance, "amount");
             }
             else
@@ -79,7 +96,6 @@ namespace AtmMachine
         {
             if (amount < 0)
             {
-                Console.WriteLine("Invalid withdrawal amount of $" + amount + " was requested. Please make only non-negative withdrawals. Returning to main menu.");
                 throw new System.ArgumentException("Parameter cannot be negative", "amount");
             }
             else
