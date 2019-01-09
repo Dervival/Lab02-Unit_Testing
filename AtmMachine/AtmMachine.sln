@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtmMachine", "AtmMachine\AtmMachine.csproj", "{E8FEB811-5A47-41DA-980B-BD2E6D8CFE74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtmXUnitTests", "XUnitTestProject1\AtmXUnitTests.csproj", "{956415BA-0A4D-45EB-8E1D-A70400CE936F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8FEB811-5A47-41DA-980B-BD2E6D8CFE74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8FEB811-5A47-41DA-980B-BD2E6D8CFE74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8FEB811-5A47-41DA-980B-BD2E6D8CFE74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8FEB811-5A47-41DA-980B-BD2E6D8CFE74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{956415BA-0A4D-45EB-8E1D-A70400CE936F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{956415BA-0A4D-45EB-8E1D-A70400CE936F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{956415BA-0A4D-45EB-8E1D-A70400CE936F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{956415BA-0A4D-45EB-8E1D-A70400CE936F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78553660-D937-43A4-8C27-849B9ECF83E9}
+	EndGlobalSection
+EndGlobal
