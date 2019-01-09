@@ -22,7 +22,8 @@ namespace AtmXUnitTests
             //arrange
             Program.balance = 100.00M;
             //act
-            Program.Withdraw(200.00M);
+            try { Program.Withdraw(200.00M); }
+            catch (Exception e) { Assert.Equal("ArgumentException", e.GetType().Name); };
             //assert
             Assert.Equal(100.00M, Program.balance);
         }
@@ -32,7 +33,8 @@ namespace AtmXUnitTests
             //arrange
             Program.balance = 100.00M;
             //act
-            Program.Withdraw(-50.00M);
+            try { Program.Withdraw(-50.00M); }
+            catch(Exception e) { Assert.Equal("ArgumentException", e.GetType().Name); };
             //assert
             Assert.Equal(100.00M, Program.balance);
         }
@@ -52,7 +54,9 @@ namespace AtmXUnitTests
             //arrange
             Program.balance = 100.00M;
             //act
-            Program.Deposit(-50.00M);
+            try { Program.Deposit(-50.00M); }
+            catch (Exception e) { Assert.Equal("ArgumentException", e.GetType().Name); };
+
             //assert
             Assert.Equal(100.00M, Program.balance);
         }
