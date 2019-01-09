@@ -67,5 +67,17 @@ namespace AtmXUnitTests
             //assert
             Assert.Equal(125.00M, Program.balance);
         }
+        [Fact]
+        public void ViewDoesNotMutateCurrentBalance()
+        {
+            //arrange
+            Program.balance = 100.00M;
+            Assert.Equal(100.00M, Program.balance);
+            //act
+            Program.View();
+            //assert
+            Assert.Equal(100.00M, Program.balance);
+            Assert.NotEqual(Program.balance, Program.Deposit(10.00M));
+        }
     }
 }
