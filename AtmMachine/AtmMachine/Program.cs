@@ -33,5 +33,19 @@ namespace AtmMachine
                 return balance;
             }
         }
+        public static decimal Deposit(decimal amount)
+        {
+            if (amount < 0)
+            {
+                Console.WriteLine("Invalid withdrawal amount of $" + amount + " was requested. Please make only non-negative withdrawals. Returning to main menu.");
+                return balance;
+            }
+            else
+            {
+                balance += amount;
+                Console.WriteLine("Deposit of $" + amount + " was successful. You have $" + balance + " left in this account.");
+                return balance;
+            }
+        }
     }
 }
